@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="estilos/estilos.css" type="text/css" />
+    <title>Problema 2</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+<body>
+    <div class="container">
+        <label for="name" >Nombre</label>
+        <input type="text" id="name" placeholder="Ej: Carlos">
+        <label for="lastName">Apellido</label>
+        <input type="text" id="lastName" placeholder="Ej: Zambrano">
+        <label for="date">Fecha de Nacimiento</label>
+        <input type="text" id="date">
+    </div>
+    <button type="submit" id="generarMensaje" >Generar Mensaje</button>
+</body>
+<script>
+    $(document).ready(function(){
+        $("#date").datepicker();
+        $("button").click(function(){
+            console.log($("#name").val());
+            console.log($("#lastName").val());
+            console.log($("#date").val());
+        });
+    })
+</script>
+</html>
