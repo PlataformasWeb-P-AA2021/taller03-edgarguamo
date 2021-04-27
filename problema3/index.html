@@ -3,22 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <link rel="stylesheet" href="estilos/estilos.css" type="text/css" />
     <title></title>
 </head>
 <body>
     <div>
         <h1>Informacion de Paises</h1>
-        <div id="container">
-            <tr>
-                <td>Global Name</td>
-                <td>Capital</td>
-                <td>FIPS</td>
-                <td>FIFA</td>
-                <td>Continent</td>
-                <td>Languages</td>
-                <td>Geobane ID</td>
-                <td>DS</td>
-            </tr>
+        <div>
+            <table id="container">
+            </table>
         </div>
         <button type="submit" id="imprimirInformacion">Mostrar Informacion</button>
     </div>
@@ -27,15 +20,18 @@
     $(document).ready(function(){
         var countryInfo = "https://pkgstore.datahub.io/core/country-codes/country-codes_json/data/616b1fb83cbfd4eb6d9e7d52924bb00a/country-codes_json.json"
         $( "#imprimirInformacion").click(function(){
+            $("#container").append("<tr class='headerTable'><th>Global Name</th><th>Capital</th><th>FIPS</th>"+
+            "<th>FIFA</th><th>Continent</th><th>Languages</th><th>Geoname ID</th>" +
+            "<th>DS</th></tr>")
             $.ajax({
                 dataType: 'json',
                 url: countryInfo
             }).then(function(data){
                 for(var i=0; i<data.length; i++){
-                    $("#container").append("<tr> <td>" + data[i].CLDR_display_name +
+                    $("#container").append("<tr class='contentTable'>  <td>" + data[i]["CLDR display name"]+
                         "</td><td>" + data[i].Capital + "</td><td>" + data[i].FIPS +
                         "</td><td>" + data[i].FIFA + "</td><td>" + data[i].Continent +
-                        "</td><td>" + data[i].Languages + "</td><td>" + data[i].Geoname_ID+
+                        "</td><td>" + data[i].Languages + "</td><td>" + data[i]["Geoname ID"]+
                         "</td><td>" + data[i].DS + "</td></tr>");
                 }
             })
