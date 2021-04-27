@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <link rel="stylesheet" href="estilos/estilos.css" type="text/css" />
-    <title></title>
+    <title>Problema 3 Presentacion de Datos</title>
 </head>
 <body>
     <div>
@@ -13,13 +13,11 @@
             <table id="container">
             </table>
         </div>
-        <button type="submit" id="imprimirInformacion">Mostrar Informacion</button>
     </div>
 </body>
 <script>
     $(document).ready(function(){
         var countryInfo = "https://pkgstore.datahub.io/core/country-codes/country-codes_json/data/616b1fb83cbfd4eb6d9e7d52924bb00a/country-codes_json.json"
-        $( "#imprimirInformacion").click(function(){
             $("#container").append("<tr class='headerTable'><th>Global Name</th><th>Capital</th><th>FIPS</th>"+
             "<th>FIFA</th><th>Continent</th><th>Languages</th><th>Geoname ID</th>" +
             "<th>DS</th></tr>")
@@ -35,7 +33,6 @@
                         "</td><td>" + data[i].DS + "</td></tr>");
                 }
             })
-        });
     });
 </script>
 </html>
